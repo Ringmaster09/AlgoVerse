@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title><%= title || "AlgoVerse" %></title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="/" class="brand">
+        <span class="brand-badge">A</span>
+        <span>AlgoVerse</span>
+      </a>
+
+      <div class="menu">
+        <a href="/posts">Posts</a>
+        <a href="/posts/create">Write</a>
+        <% if (locals.user) { %>
+          <a href="/user/logout">Logout</a>
+        <% } else { %>
+          <a href="/user/signin">Sign In</a>
+          <a href="/user/signup">Sign Up</a>
+        <% } %>
+      </div>
+
+      <button class="menu-trigger" data-menu-trigger>
+        ☰ Menu
+      </button>
+    </div>
+    <div class="container mobile" data-mobile-menu>
+      <a href="/posts">Posts</a>
+      <a href="/posts/create">Write</a>
+      <% if (locals.user) { %>
+        <a href="/user/logout">Logout</a>
+      <% } else { %>
+        <a href="/user/signin">Sign In</a>
+        <a href="/user/signup">Sign Up</a>
+      <% } %>
+    </div>
+  </nav>
+  <script src="/js/main.js" defer></script>
+  <main class="container">

@@ -1,0 +1,17 @@
+<%- include('partials/header', { title: 'Posts · AlgoVerse' }) %>
+
+<h2>Latest posts</h2>
+<div class="grid grid-2" style="margin-top:12px">
+  <% posts.forEach(p => { %>
+    <article class="card post">
+      <h3 class="title"><%= p.title %></h3>
+      <div class="meta">by <%= p.author?.fullName || 'Unknown' %> · <%= p.createdAt.toDateString() %></div>
+      <p class="snippet"><%= (p.content || '').slice(0, 180) %>...</p>
+    </article>
+  <% }) %>
+  <% if (!posts || posts.length === 0) { %>
+    <div class="card">No posts yet. <a href="/posts/create">Write the first one!</a></div>
+  <% } %>
+</div>
+
+<%- include('partials/footer') %>

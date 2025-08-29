@@ -1,0 +1,186 @@
+/* ============= Root Variables ============= */
+:root{
+    --bg: #0f1220;
+    --bg-soft: rgba(255,255,255,0.06);
+    --panel: rgba(255,255,255,0.12);
+    --text: #e9eefb;
+    --muted: #a2acc3;
+    --brand: #7c5cff;
+    --brand-2: #5ae4a7;
+    --danger: #ff6b6b;
+    --warning: #ffd166;
+    --shadow: 0 12px 40px rgba(0,0,0,.35);
+    --radius-xl: 22px;
+    --radius-lg: 16px;
+    --radius-md: 12px;
+    --radius-sm: 8px;
+    --blur: blur(12px);
+  }
+  
+  * { box-sizing: border-box }
+  html, body { height: 100% }
+  body{
+    margin:0;
+    font: 500 16px/1.6 Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", sans-serif;
+    color: var(--text);
+    background:
+      radial-gradient(1200px 500px at -10% -10%, #231a4a, transparent 70%),
+      radial-gradient(1200px 600px at 110% 10%, #142d55, transparent 70%),
+      radial-gradient(900px 900px at 50% 120%, #1c1748, transparent 60%),
+      var(--bg);
+    background-attachment: fixed;
+  }
+  
+  /* ============= Utilities ============= */
+  .container{ width: min(1100px, 92%); margin: 0 auto; }
+  .grid{ display: grid; gap: 22px }
+  .grid-2{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .grid-3{ grid-template-columns: repeat(3, minmax(0,1fr)); }
+  @media (max-width: 980px){ .grid-3{ grid-template-columns: 1fr 1fr } }
+  @media (max-width: 720px){ .grid-2, .grid-3{ grid-template-columns: 1fr } }
+  
+  .hidden{ display:none !important }
+  
+  /* ============= Glass Card ============= */
+  .card{
+    background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow);
+    backdrop-filter: var(--blur);
+    padding: 22px;
+    transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+  }
+  .card:hover{
+    transform: translateY(-4px);
+    border-color: rgba(124,92,255,.35);
+    box-shadow: 0 18px 50px rgba(124,92,255,.25);
+  }
+  
+  /* ============= Navbar ============= */
+  .nav{
+    position: sticky; top: 0; z-index: 50;
+    backdrop-filter: blur(10px);
+    background: linear-gradient(180deg, rgba(10,12,22,.85), rgba(10,12,22,.55));
+    border-bottom: 1px solid rgba(255,255,255,.08);
+  }
+  .nav-inner{ display:flex; align-items:center; justify-content:space-between; gap:14px; padding:14px 0 }
+  .brand{
+    display:flex; align-items:center; gap:12px; font-weight:800; letter-spacing:.3px;
+  }
+  .brand-badge{
+    width:36px; height:36px; display:grid; place-items:center;
+    border-radius:50%;
+    background: conic-gradient(from 220deg, var(--brand), var(--brand-2));
+    color: #0c0f1a; font-weight:900;
+    box-shadow: 0 6px 20px rgba(124,92,255,.6);
+  }
+  .nav a{ color: var(--text); text-decoration: none; opacity:.9 }
+  .menu{ display:flex; align-items:center; gap:14px }
+  @media (max-width: 720px){
+    .menu{ display:none }
+    .menu-trigger{ display:inline-flex }
+  }
+  .menu-trigger{
+    display:none; align-items:center; gap:8px;
+    padding:10px 12px; border-radius: var(--radius-md);
+    background: var(--bg-soft); border: 1px solid rgba(255,255,255,.08);
+    cursor:pointer;
+  }
+  .mobile{ display:none; padding:12px 0 }
+  .mobile.open{ display:block }
+  .mobile a{ display:block; padding:10px 12px; border-radius: 12px; background: var(--bg-soft); margin-bottom:10px }
+  
+  /* ============= Hero ============= */
+  .hero{
+    padding: 48px 0 28px;
+  }
+  .hero h1{
+    font-size: clamp(28px, 4.2vw, 48px);
+    margin:0 0 10px;
+  }
+  .hero p{ color: var(--muted); margin: 0 0 18px }
+  .hero .cta{ display:flex; flex-wrap:wrap; gap: 12px }
+  
+  /* ============= Buttons ============= */
+  .btn{
+    appearance:none; border:0; cursor:pointer;
+    padding: 12px 16px; border-radius: 14px; font-weight: 700; letter-spacing:.2px;
+    transition: transform .1s ease, filter .15s ease, box-shadow .2s ease;
+  }
+  .btn:active{ transform: translateY(1px) }
+  .btn-primary{
+    background: linear-gradient(180deg, #8e7bff, #7c5cff);
+    color:#0a0d18; box-shadow: 0 10px 28px rgba(124,92,255,.45);
+  }
+  .btn-primary:hover{ filter: brightness(1.08) }
+  .btn-ghost{
+    background: var(--bg-soft); color: var(--text);
+    border: 1px solid rgba(255,255,255,.12);
+  }
+  
+  /* ============= Forms ============= */
+  .form{
+    display:grid; gap:14px; width:min(520px, 100%);
+  }
+  .input, .textarea{
+    width:100%; padding:12px 14px; color:var(--text);
+    background: rgba(255,255,255,.04);
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 12px; outline: none;
+    transition: border-color .2s ease, box-shadow .2s ease;
+  }
+  .textarea{ min-height: 160px; resize: vertical }
+  .input:focus, .textarea:focus{
+    border-color: rgba(124,92,255,.55);
+    box-shadow: 0 0 0 4px rgba(124,92,255,.18);
+  }
+  .help{ color: var(--muted); font-size: 13px }
+  
+  /* ============= Post Card ============= */
+  .post{
+    display:flex; flex-direction:column; gap:10px;
+  }
+  .post .title{
+    font-size: 20px; margin:0;
+  }
+  .post .meta{
+    font-size: 13px; color: var(--muted);
+  }
+  .post .snippet{ color:#dfe6ffcc }
+  
+  /* ============= Toast (flash message) ============= */
+  .toast{
+    position: fixed; right: 18px; bottom: 18px; z-index:100;
+    padding: 12px 16px; border-radius: 14px;
+    background: rgba(30, 36, 64, .95);
+    border:1px solid rgba(255,255,255,.12);
+    box-shadow: var(--shadow);
+    transform: translateY(14px); opacity:0; pointer-events:none;
+    transition: transform .25s ease, opacity .25s ease;
+  }
+  .toast.show{ transform: translateY(0); opacity:1; pointer-events:auto }
+  .toast.success{ border-color: rgba(90,228,167,.45) }
+  .toast.error{ border-color: rgba(255,107,107,.45) }
+  
+  /* ============= Footer ============= */
+  .footer{
+    margin-top: 64px; padding: 28px 0; color: var(--muted);
+    border-top: 1px solid rgba(255,255,255,.08);
+    text-align:center;
+  }
+  
+  /* ============= Cute accent animation ============= */
+  .pulse{
+    position: relative;
+  }
+  .pulse::after{
+    content:""; position:absolute; inset:0; border-radius: inherit;
+    box-shadow: 0 0 0 0 rgba(124,92,255,.45);
+    animation: pulse 2.2s ease-out infinite;
+  }
+  @keyframes pulse{
+    0% { box-shadow: 0 0 0 0 rgba(124,92,255,.45) }
+    100% { box-shadow: 0 0 0 22px rgba(124,92,255,0) }
+  }
+  

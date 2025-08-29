@@ -1,0 +1,10 @@
+<%- include('partials/header', { title: 'Write · AlgoVerse' }) %>
+
+<h2>Write a new post</h2>
+<form method="POST" action="/posts/create" class="form card" onsubmit="toast('Publishing…')">
+  <input class="input" type="text" name="title" placeholder="Post title" required />
+  <textarea class="textarea" name="content" placeholder="Write your article…" required></textarea>
+  <button class="btn btn-primary" type="submit">Publish</button>
+</form>
+
+<%- include('partials/footer') %>

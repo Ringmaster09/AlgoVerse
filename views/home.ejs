@@ -1,11 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <%- include('./partials/head') %>
-    <title>Homepage</title>
-</head>
-<body>
-    <%- include('./partials/nav') %>
-    <%- include('./partials/scripts') %>
-</body>
-</html>
+<%- include('partials/header', { title: 'AlgoVerse · Home' }) %>
+
+<section class="hero">
+  <div class="hero-text">
+    <h1>Welcome to <span class="highlight">AlgoVerse</span> 🚀</h1>
+    <p>Your space to share ideas, blogs & connect with the world of algorithms and coding.</p>
+    <div class="hero-buttons">
+      <a href="/posts" class="btn primary">Explore Posts</a>
+      <a href="/user/signup" class="btn secondary">Join Now</a>
+    </div>
+  </div>
+</section>
+
+<section class="features">
+  <h2>Why AlgoVerse?</h2>
+  <div class="feature-grid">
+    <div class="card">
+      <h3>✍️ Write Blogs</h3>
+      <p>Share your knowledge with the world and inspire others through your writing.</p>
+    </div>
+    <div class="card">
+      <h3>💡 Learn & Explore</h3>
+      <p>Read posts from other developers and expand your understanding every day.</p>
+    </div>
+    <div class="card">
+      <h3>🤝 Connect</h3>
+      <p>Engage with like-minded learners and grow your network in the coding community.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <h2>Ready to get started?</h2>
+  <a href="/user/signup" class="btn big">Create Your Account</a>
+</section>
+
+<%- include('partials/footer') %>
